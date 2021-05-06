@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap");
+body {
+  --bg: #fcfcfc;
+  --bg-panel: #ebebeb;
+  --bg-links: #cac4c4;
+  --color-headings: #0077ff;
+  --color-links: #0077ff;
+  --color-hover-links: #fff;
+  --color-text: #333333;
+  --color-icon: orangered;
+  --rotation: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--bg);
+  position: relative;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+body.dark {
+  --bg: #333333;
+  --bg-panel: #434343;
+  --color-headings: #3694ff;
+  --color-text: #b5b5b5;
+  --color-icon: #fff;
+  --color-links: #fff;
+  --bg-links: #fff;
+}
+
+.container {
+  background-color: var(--bg-panel);
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% auto;
+      grid-template-columns: 80% auto;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+      grid-template-areas: "title switch" "content content" "text text";
+}
+
+.container h1 {
+  margin: 0;
+  color: var(--color-headings);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+}
+
+.container p {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: text;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.container .image-container {
+  color: var(--color-text);
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: content;
+  margin-top: 3rem;
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .image-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.container .image-container:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.container .image-container .links li {
+  list-style: none;
+}
+
+.container .image-container .links li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  width: 30px;
+  margin: 8px 0;
+  text-decoration: none;
+  color: var(--color-headings);
+  background-color: var(--bg-links);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.container .image-container .links li a:hover {
+  color: var(--color-hover-links);
+}
+
+.container .image-container .links li a .fab {
+  position: relative;
+  z-index: 200;
+}
+
+.container .image-container .links li a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-headings);
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.container .image-container .links li a:hover:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.toggle-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: switch;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  display: block;
+  width: 52px;
+  height: 27px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background-color: var(--color-headings);
+}
+
+input:checked + label:after {
+  left: calc(100% - 3px);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 25px;
+}
+
+.sun-moon-container {
+  position: absolute;
+  height: 200vmin;
+  pointer-events: none;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: rotate(calc(var(--rotation) * 1deg));
+          transform: rotate(calc(var(--rotation) * 1deg));
+  font-weight: 900;
+  font-size: 4rem;
+  color: var(--color-icon);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.sun-moon-container:after, .sun-moon-container::before {
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.sun-moon-container:before {
+  position: absolute;
+  content: "\f185";
+  font-family: "Font Awesome 5 Free";
+  top: 5%;
+  opacity: 1;
+}
+
+.sun-moon-container:after {
+  position: absolute;
+  content: "\f186";
+  font-family: "Font Awesome 5 Free";
+  bottom: 5%;
+  opacity: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.dark .sun-moon-container:before {
+  opacity: 0;
+}
+
+.dark .sun-moon-container:after {
+  opacity: 1;
+}
+/*# sourceMappingURL=styles.css.map */
